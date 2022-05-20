@@ -8,9 +8,14 @@
  */
 int main(void)
 {
-	    _printf("Hello %c World!\n", 'A');
-	    _printf("Hello %s !\n", "World");
-	    _printf("Hello %% !\n");
-	    printf("Hello %% !\n");
-	    return (0);
+	int n = 0;
+	n = _printf("Hello %c World!\n", 'A');
+	printf("%d\n",n);
+	n = _printf("Hello %s !\n", "World");
+	printf("%d\n",n);
+	n = _printf("Hello %% !\n");
+	printf("%d\n",n);
+	n = printf("Hello %% !\n");
+	printf("%d\n",n);
+	return (0);
 }
