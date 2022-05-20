@@ -8,15 +8,17 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	const char *ptr;
-	int index = 0;
+	int index = 0, display_count = 0;
 
 	va_start(args, format);
 
 	while (format[index] != '\0')
 	{
 		if (format[index] != '%')
+		{
 			_putchar(format[index]);
+			display_count++;
+		}
 		else
 		{
 			switch (format[index + 1])
@@ -24,26 +26,24 @@ int _printf(const char *format, ...)
 			case 'c':
 				_putchar(va_arg(args, int));
 				index++;
+				display_count++;
 				break;
 			case 's':
-				ptr = va_arg(args, char *);
-				while (*ptr != '\0')
-				{
-					_putchar(*ptr);
-					ptr++;
-				}
+				display_count += _puts(va_arg(args, char *));
 				break;
 			case 'd':
 				_putchar(va_arg(args, int));
+				display_count++;
 				break;
 			default:
 				_putchar(format[index]);
 				index++;
+				display_count++;
 				break;
 			}
 		}
 		index++;
 	}
 	va_end(args);
-	return (0);
+	return (display_count);
 }
