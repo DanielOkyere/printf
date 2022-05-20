@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 	for (index = 0; format[index] != '\0'; index++)
 	{
-		if (format[index] != '%')
+		if (format[index] == '%')
 		{
 			display_count += get_action(format[index + 1], &args);
 			display_count++;

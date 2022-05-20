@@ -9,20 +9,7 @@
  */
 int _putchar(char c)
 {
-	static char my_buf[1024];
-	static int i;
-
-	if (c == -1 || i >= 1024)
-	{
-		write(1, &my_buf, i);
-		i = 0;
-	}
-	if (c != -1)
-	{
-		my_buf[i] = c;
-		i++;
-	}
-	return (1);
+	return (write(1, &c, 1));
 }
 /**
  * _puts - prints a string
