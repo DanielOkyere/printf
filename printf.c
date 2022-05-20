@@ -12,9 +12,14 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	while (format[index] != '\0')
+        if (!format || (format[0] == '%' && !format[1]))
+        return (-1);
+        if (format[0] == '%' && format[1] == ' ' && !format[2])
+        return (-1);
+
+        while (format[index] != '\0')
 	{
-		if (format[index] != '%')
+                if (format[index] != '%')
 		{
 			_putchar(format[index]);
 			display_count++;
