@@ -12,42 +12,23 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-        if (!format || (format[0] == '%' && !format[1]))
-        return (-1);
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
         if (format[0] == '%' && format[1] == ' ' && !format[2])
-        return (-1);
+		return (-1);
 
-        while (format[index] != '\0')
+	for (index = 0; format[index] != '\0'; index++)
 	{
-                if (format[index] != '%')
+		if (format[index] == '%')
 		{
-			_putchar(format[index]);
+			display_count += get_action(format[index + 1], &args);
 			display_count++;
 		}
 		else
 		{
-			switch (format[index + 1])
-			{
-			case 'c':
-				_putchar(va_arg(args, int));
-				index++;
-				display_count++;
-				break;
-			case 's':
-				display_count += _puts(va_arg(args, char *));
-				break;
-			case 'd':
-				_putchar(va_arg(args, int));
-				display_count++;
-				break;
-			default:
-				_putchar(format[index]);
-				index++;
-				display_count++;
-				break;
-			}
+			_putchar(format[index]);
+			display_count++;
 		}
-		index++;
 	}
 	va_end(args);
 	return (display_count);
