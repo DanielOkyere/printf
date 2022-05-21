@@ -1,33 +1,10 @@
 #include "main.h"
-#include <unistd.h>
+#include <stdarg.h>
 
-/**
- * _putchar - prints a char
- * @c: character to print
- * Return: 1 on success
- * On error, -1 is returned
- */
-int _putchar(char c)
+int _print_int(va_list args)
 {
-	return (write(1, &c, 1));
-}
-/**
- * _puts - prints a string
- * @str: pointer to the string
- * Return: number of chars written
- */
-int _puts(char *str)
-{
-	register int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]);
-	return (i);
-}
-
-int p_int(int number)
-{
-	int size, digit, result;
+    int number = va_arg(args, int);
+    int size, digit, result;
 	long c, sign;
 
 	sign = 1;
@@ -63,7 +40,13 @@ int p_int(int number)
 	result++;
 	return (result);
 }
-
+/**
+ * exponent - calculates the exponent
+ *
+ * @x: int x
+ * @y: int y
+ * Return: int
+ */
 int exponent(int x, int y)
 {
 	if (y < 0)
