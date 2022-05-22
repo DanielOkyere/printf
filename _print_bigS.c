@@ -1,8 +1,13 @@
 #include "main.h"
-
+/**
+ * _print_bigS - prints the hexagonal character in Capital
+ * @args: argument list
+ * @flags: flags
+ * Return: int
+ */
 int _print_bigS(va_list args, t_flags *flags)
 {
-    int i, count = 0;
+	int i, count = 0;
 	char *res;
 	char *s = va_arg(args, char *);
 
