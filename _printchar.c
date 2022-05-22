@@ -9,8 +9,7 @@
 */
 int _printchar(va_list args, t_flags *flags)
 {
-    (void)flags;
-
-    _putchar(va_arg(args, int));
-    return (1);
+	(void)flags;
+	_putchar(va_arg(args, int));
+	return (1);
 }

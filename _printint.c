@@ -2,25 +2,25 @@
 #include <stdarg.h>
 
 /**
-* _print_int - prints int 
+* _print_int - prints int
 * @args: arguments
 * @flags: identifier
 * Return: int
 */
 int _print_int(va_list args, t_flags *flags)
 {
-    int n = va_arg(args, int);
-    int result = count_digit(n);
+	int n = va_arg(args, int);
+	int result = count_digit(n);
 
-    if (flags->space == 1 && flags->plus == 0 && n >= 0)
-        result += _putchar(' ');
-    if (flags->plus == 1 && n >= 0)
-        result += _putchar('+');
-    if (n <= 0)
-        result++;
+	if (flags->space == 1 && flags->plus == 0 && n >= 0)
+		result += _putchar(' ');
+	if (flags->plus == 1 && n >= 0)
+		result += _putchar('+');
+	if (n <= 0)
+		result++;
 
-    print_number(n);
-    return (result);
+	print_number(n);
+	return (result);
 }
 
 /**
@@ -29,19 +29,20 @@ int _print_int(va_list args, t_flags *flags)
 */
 void print_number(int n)
 {
-    unsigned int num;
-    if (n < 0)
-    {
-        _putchar('-');
-        num = -n;
-    }
-    else
-        num = n;
+	unsigned int num;
 
-    if (num / 10)
-        print_number(num / 10);
+	if (n < 0)
+	{
+		_putchar('-');
+		num = -n;
+	}
+	else
+		num = n;
 
-    _putchar((num % 10) + '0');
+	if (num / 10)
+		print_number(num / 10);
+
+	_putchar((num % 10) + '0');
 }
 /**
 * count_digit - counts the digit
@@ -50,18 +51,18 @@ void print_number(int n)
 */
 int count_digit(int n)
 {
-    unsigned int num = 0;
-    unsigned int u;
+	unsigned int num = 0;
+	unsigned int u;
 
-    if (n < 0)
-        u = num * -1;
-    else
-        u = n;
+	if (n < 0)
+		u = num * -1;
+	else
+		u = n;
 
-    while (u != 0)
-    {
-        u /= 10;
-        num++;
-    }
-    return (num);
+	while (u != 0)
+	{
+		u /= 10;
+		num++;
+	}
+	return (num);
 }

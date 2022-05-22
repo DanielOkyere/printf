@@ -8,10 +8,10 @@
 */
 int _print_str(va_list args, t_flags *flags)
 {
-    char *s = va_arg(args, char *);
-    (void)flags;
-    if (!s)
-        s = "(null)";
+	char *s = va_arg(args, char *);
 
-    return (_puts(s));
+	(void)flags;
+	if (!s)
+		s = "(null)";
+	return (_puts(s));
 }
